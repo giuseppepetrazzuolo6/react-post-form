@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 function App() {
+  const [formData, setFormData] = useState({
+    author: '',
+    title: '',
+    body: '',
+    public: false
+  })
 
   return (
     <div className="container p-4">
