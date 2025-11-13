@@ -8,10 +8,14 @@ function App() {
     public: false
   })
 
+  function handleSubmit(e) {
+    e.preventDefault()
+  }
+
   return (
     <div className="container p-4">
       <h2 className="text-center text-primary mb-4">Crea un nuovo post</h2>
-      <form className="bg-light p-4 rounded shadow">
+      <form className="bg-light p-4 rounded shadow" onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="author" className="form-label fw-bold">
             Autore
