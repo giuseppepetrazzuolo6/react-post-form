@@ -21,6 +21,7 @@ function App() {
             id="author"
             name="author"
             value={formData.author}
+            onChange={(e) => setFormData({ ...formData, author: e.target.value })}
             className="form-control"
             placeholder="Inserisci il nome dell’autore"
           />
@@ -34,6 +35,7 @@ function App() {
             id="title"
             name="title"
             value={formData.title}
+            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
             className="form-control"
             placeholder="Titolo del post"
           />
@@ -46,6 +48,7 @@ function App() {
             id="body"
             name="body"
             value={formData.body}
+            onChange={(e) => setFormData({ ...formData, body: e.target.value })}
             className="form-control"
             rows="5"
             placeholder="Scrivi qui il contenuto del post..."
@@ -57,6 +60,7 @@ function App() {
             id="public"
             name="public"
             checked={formData.public}
+            onChange={(e) => setFormData({ ...formData, public: e.target.checked })}
             className="form-check-input"
           />
           <label htmlFor="public" className="form-check-label">
