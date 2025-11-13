@@ -10,6 +10,7 @@ function App() {
     public: false
   }
   const [formData, setFormData] = useState(standardForm)
+  const [message, setMessage] = useState(null)
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -19,16 +20,21 @@ function App() {
     })
       .then(response => {
         console.log(response);
+        if (response.status === 201) {
+          setMessage('Post pubblicato! 😎')
+        }
         setFormData(standardForm)
       })
       .catch(error => {
-        console.log(error);
+        console.log(error.message);
+        setMessage(error.message)
       })
   }
 
   return (
     <div className="container p-4">
       <h2 className="text-center text-primary mb-4">Crea un nuovo post</h2>
+      {message && <p className="text-center">{message}</p>}
       <form className="bg-light p-4 rounded shadow" onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="author" className="form-label fw-bold">
