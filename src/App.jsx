@@ -3,15 +3,27 @@ import axios from "axios";
 const endpointUrl = 'https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts'
 
 function App() {
-  const [formData, setFormData] = useState({
+  const standardForm = {
     author: '',
     title: '',
     body: '',
     public: false
-  })
+  }
+  const [formData, setFormData] = useState(standardForm)
 
   function handleSubmit(e) {
     e.preventDefault()
+
+    axios.post(endpointUrl, formData, {
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then(response => {
+        console.log(response);
+        setFormData(standardForm)
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
   return (
