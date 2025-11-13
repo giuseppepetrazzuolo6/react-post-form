@@ -20,6 +20,7 @@ function App() {
             type="text"
             id="author"
             name="author"
+            value={formData.author}
             className="form-control"
             placeholder="Inserisci il nome dell’autore"
           />
@@ -32,6 +33,7 @@ function App() {
             type="text"
             id="title"
             name="title"
+            value={formData.title}
             className="form-control"
             placeholder="Titolo del post"
           />
@@ -43,6 +45,7 @@ function App() {
           <textarea
             id="body"
             name="body"
+            value={formData.body}
             className="form-control"
             rows="5"
             placeholder="Scrivi qui il contenuto del post..."
@@ -53,6 +56,7 @@ function App() {
             type="checkbox"
             id="public"
             name="public"
+            checked={formData.public}
             className="form-check-input"
           />
           <label htmlFor="public" className="form-check-label">
